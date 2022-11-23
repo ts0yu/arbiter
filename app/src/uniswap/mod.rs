@@ -21,31 +21,95 @@ pub fn get_uniswapv3_factory(provider: Arc<Provider<Http>>) -> UniswapV3Factory<
 pub async fn get_pool_from_uniswap(
     tokens: &(Token, Token),
     factory: UniswapV3Factory<Provider<Http>>,
-    bp: String,
-) -> Address {
+    bp: Option<&str>,
+) -> Vec<Address> {
     // BP options = 100, 500, 3000, 10000 [1bb, 5bp, 30bp, 100bp]
-    let pool = match bp.as_str() {
-        "1" => factory
-            .get_pool(tokens.0.address, tokens.1.address, 100)
-            .call()
-            .await
-            .unwrap(),
-        "5" => factory
-            .get_pool(tokens.0.address, tokens.1.address, 500)
-            .call()
-            .await
-            .unwrap(),
-        "30" => factory
-            .get_pool(tokens.0.address, tokens.1.address, 3000)
-            .call()
-            .await
-            .unwrap(),
-        "100" => factory
-            .get_pool(tokens.0.address, tokens.1.address, 10000)
-            .call()
-            .await
-            .unwrap(),
-        _ => panic!("No pools with specified basis points"),
+    let bp = Some(String::from(bp.unwrap()));
+    let pool = match bp {
+        // The division was valid
+        Some(x) => match x.as_ref() {
+            "1" => vec![factory
+                .get_pool(tokens.0.address, tokens.1.address, 100)
+                .call()
+                .await
+                .unwrap()
+                .into()],
+            "5" => vec![factory
+                .get_pool(tokens.0.address, tokens.1.address, 500)
+                .call()
+                .await
+                .unwrap()
+                .into()],
+            "30" => vec![factory
+                .get_pool(tokens.0.address, tokens.1.address, 3000)
+                .call()
+                .await
+                .unwrap()
+                .into()],
+            "100" => vec![factory
+                .get_pool(tokens.0.address, tokens.1.address, 10000)
+                .call()
+                .await
+                .unwrap()
+                .into()],
+            _ => panic!("Enter Valid bp [Example: 1, 5, 30, 100]"),
+            // match bp {
+            //     // The division was valid
+            //     Some(x) => match x.as_ref() {
+            //         "1" => pool.push(
+            //             factory
+            //                 .get_pool(tokens.0.address, tokens.1.address, 100)
+            //                 .call()
+            //                 .await
+            //                 .unwrap()
+            //                 .into(),
+            //         ),
+            //         "5" => pool.push(
+            //             factory
+            //                 .get_pool(tokens.0.address, tokens.1.address, 500)
+            //                 .call()
+            //                 .await
+            //                 .unwrap(),
+            //         ),
+            //         "30" => pool.push(
+            //             factory
+            //                 .get_pool(tokens.0.address, tokens.1.address, 3000)
+            //                 .call()
+            //                 .await
+            //                 .unwrap(),
+            //         ),
+            //         "100" => pool.push(
+            //             factory
+            //                 .get_pool(tokens.0.address, tokens.1.address, 10000)
+            //                 .call()
+            //                 .await
+            //                 .unwrap(),
+            //         ),
+            //         _ => panic!("Enter Valid bp [Example: 1, 5, 30, 100]"),
+        },
+        // The division was invalid
+        None => vec![
+            factory
+                .get_pool(tokens.0.address, tokens.1.address, 100)
+                .call()
+                .await
+                .unwrap(),
+            factory
+                .get_pool(tokens.0.address, tokens.1.address, 500)
+                .call()
+                .await
+                .unwrap(),
+            factory
+                .get_pool(tokens.0.address, tokens.1.address, 3000)
+                .call()
+                .await
+                .unwrap(),
+            factory
+                .get_pool(tokens.0.address, tokens.1.address, 10000)
+                .call()
+                .await
+                .unwrap(),
+        ],
     };
     pool
 }
@@ -112,11 +176,11 @@ mod tests {
                 tokens.get("ETH").unwrap().to_owned(),
                 tokens.get("USDC").unwrap().to_owned(),
             ),
-            String::from("1"),
+            Some("1"),
         );
         let pool = get_pool_from_uniswap(&test_tokens, factory.clone(), bp).await;
         assert_eq!(
-            pool,
+            pool[0],
             "0xe0554a476a092703abdb3ef35c80e0d76d32939f"
                 .parse::<Address>()
                 .unwrap()
@@ -133,11 +197,11 @@ mod tests {
                 tokens.get("ETH").unwrap().to_owned(),
                 tokens.get("USDC").unwrap().to_owned(),
             ),
-            String::from("5"),
+            Some("5"),
         );
         let pool = get_pool_from_uniswap(&test_tokens, factory.clone(), bp).await;
         assert_eq!(
-            pool,
+            pool[1],
             "0x88e6a0c2ddd26feeb64f039a2c41296fcb3f5640"
                 .parse::<Address>()
                 .unwrap()
@@ -154,11 +218,11 @@ mod tests {
                 tokens.get("ETH").unwrap().to_owned(),
                 tokens.get("USDC").unwrap().to_owned(),
             ),
-            String::from("30"),
+            Some("30"),
         );
         let pool = get_pool_from_uniswap(&test_tokens, factory.clone(), bp).await;
         assert_eq!(
-            pool,
+            pool[2],
             "0x8ad599c3a0ff1de082011efddc58f1908eb6e6d8"
                 .parse::<Address>()
                 .unwrap()
@@ -174,11 +238,11 @@ mod tests {
                 tokens.get("ETH").unwrap().to_owned(),
                 tokens.get("USDC").unwrap().to_owned(),
             ),
-            String::from("100"),
+            Some("100"),
         );
         let pool = get_pool_from_uniswap(&test_tokens, factory.clone(), bp).await;
         assert_eq!(
-            pool,
+            pool[3],
             "0x7bea39867e4169dbe237d55c8242a8f2fcdcc387"
                 .parse::<Address>()
                 .unwrap()
@@ -195,7 +259,7 @@ mod tests {
                 tokens.get("ETH").unwrap().to_owned(),
                 tokens.get("USDC").unwrap().to_owned(),
             ),
-            String::from("700"),
+            Some("700"),
         );
         get_pool_from_uniswap(&test_tokens, factory.clone(), bp).await;
     }

@@ -14,12 +14,14 @@ async fn main() -> Result<()> {
     let uniswap_factory = uniswap::get_uniswapv3_factory(provider.clone());
 
     // Return addresses of UniswapV3 pools given a token pair
-    let result_address = uniswap::get_pool_from_uniswap(&tokens, uniswap_factory, bp).await;
-    println!("Uniswap Pool Result: {:#?}", result_address);
+    let result_addresses = uniswap::get_pool_from_uniswap(&tokens, uniswap_factory, bp).await;
+    println!("Uniswap Pool Result: {:#?}", result_addresses);
 
     // Monitor pool swap events
-    let pool_object = uniswap::get_pool_objects(result_address, provider).await;
-    uniswap::monitor_pool(&pool_object, &tokens).await;
+    if result_addresses.len() == 1 {
+        let pool_object = uniswap::get_pool_objects(result_addresses[0], provider).await;
+        uniswap::monitor_pool(&pool_object, &tokens).await;
+    }
 
     Ok(())
 }

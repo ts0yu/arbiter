@@ -13,7 +13,7 @@ pub async fn get_provider() -> Arc<Provider<Http>> {
 }
 
 // Search through token list to get token objects from user input
-pub fn get_tokens_from_cli() -> ((Token, Token), String) {
+pub fn get_tokens_from_cli() -> ((Token, Token), Option<&'static str>) {
     let (token_0_string, token_1_string, bp, _api_key) = get_cli();
     let tokens = tokens::get_tokens();
     (
