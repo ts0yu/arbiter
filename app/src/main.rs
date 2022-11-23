@@ -1,4 +1,7 @@
+use bindings::i_uniswap_v3_pool::IUniswapV3Pool;
 use eyre::Result;
+
+use crate::uniswap::monitor_pools;
 mod cli;
 mod tokens;
 mod uniswap;
@@ -19,8 +22,11 @@ async fn main() -> Result<()> {
 
     // Monitor pool swap events
     if result_addresses.len() == 1 {
-        let pool_object = uniswap::get_pool_objects(result_addresses[0], provider).await;
+        let pool_object = IUniswapV3Pool::new(result_addresses[0], provider);
         uniswap::monitor_pool(&pool_object, &tokens).await;
+    } else {
+        let pool_objects = uniswap::get_pool_objects(result_addresses, provider).await;
+        let join_handles = monitor_pools(pool_objects, tokens);
     }
 
     Ok(())

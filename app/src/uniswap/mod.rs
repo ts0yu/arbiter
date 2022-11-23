@@ -4,9 +4,10 @@ use ethers::abi::Address;
 use ethers::prelude::*;
 use ethers::providers::Provider;
 use num_bigfloat::BigFloat;
-use std::sync::Arc;
+use std::sync::{Arc, Mutex};
+use std::thread::{self, JoinHandle, Thread};
 
-use crate::tokens::Token;
+use crate::tokens::{self, Token};
 use crate::utils;
 
 // get uniswap factory from bindings
@@ -54,6 +55,7 @@ pub async fn get_pool_from_uniswap(
                 .into()],
             _ => panic!("Enter Valid bp [Example: 1, 5, 30, 100]"),
         },
+        // in the future multi thread this
         None => vec![
             factory
                 .get_pool(tokens.0.address, tokens.1.address, 100)
@@ -81,10 +83,35 @@ pub async fn get_pool_from_uniswap(
 }
 // Get pool obect bindings from address
 pub async fn get_pool_objects(
-    address: Address,
+    addresses: Vec<Address>,
     provider: Arc<Provider<Http>>,
-) -> IUniswapV3Pool<Provider<Http>> {
-    IUniswapV3Pool::new(address, provider)
+) -> Vec<IUniswapV3Pool<Provider<Http>>> {
+    let mut vec = vec![];
+    for address in addresses {
+        vec.push(IUniswapV3Pool::new(address, provider.clone()));
+    }
+    vec
+}
+pub async fn monitor_pools(
+    pools: Vec<IUniswapV3Pool<Provider<Http>>>,
+    tokens: (Token, Token),
+) -> Vec<JoinHandle<()>> {
+    let mut handles: Vec<JoinHandle<()>> = vec![];
+    let token_resources = Arc::new(Mutex::new(tokens));
+    for pool in pools {
+        let pool_resource = Arc::new(Mutex::new(pool));
+
+        let pool = Arc::clone(&pool_resource);
+        let tokens = Arc::clone(&token_resources);
+        let handle = thread::spawn(move || monitor_thread_pool(pool, tokens));
+        handles.push(handle);
+    }
+    handles
+}
+pub fn monitor_thread_pool(
+    pool: Arc<Mutex<IUniswapV3Pool<ethers::providers::Provider<ethers::providers::Http>>>>,
+    tokens: Arc<Mutex<(tokens::Token, tokens::Token)>>,
+) {
 }
 //monitor event stream from pool
 pub async fn monitor_pool(pool: &IUniswapV3Pool<Provider<Http>>, tokens: &(Token, Token)) {
