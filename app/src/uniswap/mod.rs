@@ -108,6 +108,7 @@ pub async fn monitor_pools(
     }
     handles
 }
+// Maybe need to use message passing with channels?
 pub fn monitor_thread_pool(
     pool: Arc<Mutex<IUniswapV3Pool<ethers::providers::Provider<ethers::providers::Http>>>>,
     tokens: Arc<Mutex<(tokens::Token, tokens::Token)>>,
