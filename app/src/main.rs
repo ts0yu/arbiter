@@ -13,7 +13,7 @@ async fn main() -> Result<()> {
     let (tokens, bp) = utils::get_tokens_from_cli();
 
     // RPC endpoint [deault: alchemy]
-    let provider = utils::get_provider().await;
+    let provider = utils::get_provider();
     let uniswap_factory = uniswap::get_uniswapv3_factory(provider.clone());
 
     // Return addresses of UniswapV3 pools given a token pair

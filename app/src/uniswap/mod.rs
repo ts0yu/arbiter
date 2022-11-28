@@ -4,8 +4,10 @@ use ethers::abi::Address;
 use ethers::prelude::*;
 use ethers::providers::Provider;
 use num_bigfloat::BigFloat;
+use std::fs::read;
 use std::sync::{Arc, Mutex};
 use std::thread::{self, JoinHandle, Thread};
+use tokio::select;
 
 use crate::tokens::{self, Token};
 use crate::utils;
@@ -99,7 +101,7 @@ pub async fn monitor_pools(
     let mut handles: Vec<JoinHandle<()>> = vec![];
     let token_resources = Arc::new(Mutex::new(tokens));
     for pool in pools {
-        let pool_resource = Arc::new(Mutex::new(pool));
+        let pool_resource = Arc::new(pool);
 
         let pool = Arc::clone(&pool_resource);
         let tokens = Arc::clone(&token_resources);
@@ -109,10 +111,16 @@ pub async fn monitor_pools(
     handles
 }
 // Maybe need to use message passing with channels?
+// Use the select macro!!!
+pub async fn test_select_macro() {
+    select! {}
+}
 pub fn monitor_thread_pool(
-    pool: Arc<Mutex<IUniswapV3Pool<ethers::providers::Provider<ethers::providers::Http>>>>,
+    pool: Arc<IUniswapV3Pool<ethers::providers::Provider<ethers::providers::Http>>>,
     tokens: Arc<Mutex<(tokens::Token, tokens::Token)>>,
 ) {
+    let swap_event_filter = &pool.swap_filter();
+    // let pool_token_0 = pool.token_0().call().await.unwrap()
 }
 //monitor event stream from pool
 pub async fn monitor_pool(pool: &IUniswapV3Pool<Provider<Http>>, tokens: &(Token, Token)) {
@@ -132,7 +140,7 @@ pub async fn monitor_pool(pool: &IUniswapV3Pool<Provider<Http>>, tokens: &(Token
         println!("tick {:#?}", event.tick); // i32
         println!(
             "price {:#?}",
-            compute_price(tokens.clone(), event.sqrt_price_x96, pool_token_0,).to_string()
+            compute_price(tokens.clone(), event.sqrt_price_x96, pool_token_0,)
         )
     }
 }
@@ -161,7 +169,7 @@ mod tests {
     use super::get_pool_from_uniswap;
     #[tokio::test]
     async fn test_get_pool_from_uniswap_1() {
-        let provider: Arc<Provider<Http>> = utils::get_provider().await;
+        let provider: Arc<Provider<Http>> = utils::get_provider();
         let tokens = tokens::get_tokens();
         let factory = uniswap::get_uniswapv3_factory(provider.clone());
 
@@ -182,7 +190,7 @@ mod tests {
     }
     #[tokio::test]
     async fn test_get_pool_from_uniswap_5() {
-        let provider: Arc<Provider<Http>> = utils::get_provider().await;
+        let provider: Arc<Provider<Http>> = utils::get_provider();
         let tokens = tokens::get_tokens();
         let factory = uniswap::get_uniswapv3_factory(provider.clone());
 
@@ -203,7 +211,7 @@ mod tests {
     }
     #[tokio::test]
     async fn test_get_pool_from_uniswap_30() {
-        let provider: Arc<Provider<Http>> = utils::get_provider().await;
+        let provider: Arc<Provider<Http>> = utils::get_provider();
         let tokens = tokens::get_tokens();
         let factory = uniswap::get_uniswapv3_factory(provider.clone());
 
@@ -224,7 +232,7 @@ mod tests {
     }
     #[tokio::test]
     async fn test_get_pool_from_uniswap_100() {
-        let provider: Arc<Provider<Http>> = utils::get_provider().await;
+        let provider: Arc<Provider<Http>> = utils::get_provider();
         let tokens = tokens::get_tokens();
         let factory = uniswap::get_uniswapv3_factory(provider.clone());
         let (test_tokens, bp) = (
@@ -245,7 +253,7 @@ mod tests {
     #[tokio::test]
     #[should_panic]
     async fn test_get_pool_from_uniswap_700() {
-        let provider: Arc<Provider<Http>> = utils::get_provider().await;
+        let provider: Arc<Provider<Http>> = utils::get_provider();
         let tokens = tokens::get_tokens();
         let factory = uniswap::get_uniswapv3_factory(provider.clone());
         let (test_tokens, bp) = (
