@@ -6,6 +6,1188 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.21](https://github.com/ts0yu/arbiter/compare/arbiter-v0.4.20...arbiter-v0.4.21) - 2024-08-01
+
+### Added
+- environment logs ([#911](https://github.com/ts0yu/arbiter/pull/911))
+- `error!` output from behavior ([#913](https://github.com/ts0yu/arbiter/pull/913))
+- *(engine)* optional stream for behaviors ([#899](https://github.com/ts0yu/arbiter/pull/899))
+- template as submodule ([#887](https://github.com/ts0yu/arbiter/pull/887))
+- deprecate init ([#886](https://github.com/ts0yu/arbiter/pull/886))
+- *(arbiter-macros)* `#[arbiter_macros::main]` and a project example ([#880](https://github.com/ts0yu/arbiter/pull/880))
+- *(arbiter-core)* stream with meta ([#863](https://github.com/ts0yu/arbiter/pull/863))
+- add agent builder
+- `ArbiterInspector`
+- console log works
+- `World::stop()` method
+- double agent test
+- stream into process
+- world/agent/behavior state machine
+- generic decoded event stream
+- database disk handling
+- run()
+- messaging layer + example starts
+- pubsub provider worlds
+- metadata
+- pubsubclient test
+- feature configuration for the tests module
+- set_gas_price
+- add account on client creation
+- `deal()` method
+- increment block time for `RandomlySampled`
+- fmt
+- refactor main
+- init
+- finalllllyyy
+- changes
+- add necessary unwraps
+- even more propegation
+- more propegation
+- zero addy
+- changes
+- use `thiserror`
+- fix rustdoc link
+- fix error
+- more docs
+- simulation docs
+- clairvoyance docs
+- *(clairvoyance)* clippy & fmt
+- *(clairvoyance)* fix again
+- *(clairvoyance)* fix invocation *again*
+- *(clarivoyance)* fix macro invocation
+- *(clarivoyance)* make compile
+- *(clairvoyance)* reduce loc with testing macro
+- *(clairvoyance)* more line spacing
+- *(clairvoyance)* fix line spacing
+- formatting + no more dead links
+- cargo fmt
+- custom providers
+- passing tests
+- add token init method
+
+### Fixed
+- fix CI issues prior to release ([#861](https://github.com/ts0yu/arbiter/pull/861))
+- post merge issues, good to go
+- messager and stuff
+- tracing instrument for startup
+- fmt
+- tests
+- lint + doc
+- fixes
+- fix error
+- `arbiter-core` tests
+- `Engine::run_state`
+- tests and test workflow
+- fix hanging test
+- fix shutdown receiver logic
+- fix broken test
+- fix test and change output directory
+- fix data output test to rmdir after completion
+- fix clippy + fmt
+- fix tests
+- *(bind)* output directory outputs to src/bindings
+- fix clippy
+- fix toggle_written_columns so that headers get written to new files
+- fix CI
+- fix revm types
+- `try_recv` and middleware tests
+- fmt
+- remove prints
+- `bench.rs`
+- randomly selected gas price
+- clients tests
+- randomly sampled block test
+- transactions per block
+- lint
+- broken compile in `bench.rs`
+- make all tests pass
+- fix linter issues and CI
+- fixed tests
+- fix stack overflow error
+- fixes -- getting closer
+- fix comment
+- fix bind script to point to arbmod contracts
+- fix tests in lib
+- fixed redundant data structure in df
+- fix
+- fixed/edited output data
+- fix new branch
+- fix arbiter math  bindings
+- fix unpack execution in main merge
+- fix error
+- fixed broken test
+- fix
+- fixed warning in cargo test
+- fix SimulationStruct phantom data
+- fixed version in cli/Cargo.toml
+- fix version in bindings/Cargo.toml
+- fixed clippy (potentially)
+- fix clippy suggested changes
+- fixs
+- fix tests
+- fixing cargo clippy checks for adding error handling
+- fixing cargo fmt checks for custom error handling
+- fixed filename and simulation build
+- fixing wseth -> wsteth
+- fixing reth's variable name
+
+### Other
+- *(deps)* bump anyhow from 1.0.82 to 1.0.83 ([#965](https://github.com/ts0yu/arbiter/pull/965))
+- *(deps)* bump serde from 1.0.198 to 1.0.200 ([#964](https://github.com/ts0yu/arbiter/pull/964))
+- *(deps)* bump hashbrown from 0.14.3 to 0.14.5 ([#963](https://github.com/ts0yu/arbiter/pull/963))
+- release
+- release ([#916](https://github.com/ts0yu/arbiter/pull/916))
+- Some repository Tender Loving Care. Should fix release please once merged.  ([#959](https://github.com/ts0yu/arbiter/pull/959))
+- *(deps)* bump rustls from 0.21.10 to 0.21.11 in /docs in the cargo group across 1 directory ([#957](https://github.com/ts0yu/arbiter/pull/957))
+- *(deps)* bump rustls from 0.21.10 to 0.21.11 in the cargo group ([#956](https://github.com/ts0yu/arbiter/pull/956))
+- *(deps)* bump serde_json from 1.0.115 to 1.0.116 ([#955](https://github.com/ts0yu/arbiter/pull/955))
+- *(deps)* bump chrono from 0.4.37 to 0.4.38 ([#954](https://github.com/ts0yu/arbiter/pull/954))
+- *(deps)* bump serde from 1.0.197 to 1.0.198 ([#953](https://github.com/ts0yu/arbiter/pull/953))
+- *(deps)* bump quote from 1.0.35 to 1.0.36 ([#947](https://github.com/ts0yu/arbiter/pull/947))
+- *(deps)* bump anyhow from 1.0.81 to 1.0.82 ([#946](https://github.com/ts0yu/arbiter/pull/946))
+- *(deps)* bump async-trait from 0.1.79 to 0.1.80 ([#948](https://github.com/ts0yu/arbiter/pull/948))
+- *(deps)* bump syn from 2.0.58 to 2.0.60 ([#952](https://github.com/ts0yu/arbiter/pull/952))
+- *(deps)* bump h2 from 0.3.24 to 0.3.26 in /docs ([#945](https://github.com/ts0yu/arbiter/pull/945))
+- *(deps)* bump h2 from 0.3.25 to 0.3.26 ([#944](https://github.com/ts0yu/arbiter/pull/944))
+- *(deps)* bump syn from 2.0.57 to 2.0.58 ([#943](https://github.com/ts0yu/arbiter/pull/943))
+- db management ([#922](https://github.com/ts0yu/arbiter/pull/922))
+- *(deps)* bump async-trait from 0.1.77 to 0.1.79 ([#940](https://github.com/ts0yu/arbiter/pull/940))
+- *(deps)* bump thiserror from 1.0.57 to 1.0.58 ([#941](https://github.com/ts0yu/arbiter/pull/941))
+- *(deps)* bump tokio-stream from 0.1.14 to 0.1.15 ([#939](https://github.com/ts0yu/arbiter/pull/939))
+- *(deps)* bump serde_json from 1.0.114 to 1.0.115 ([#938](https://github.com/ts0yu/arbiter/pull/938))
+- *(deps)* bump mio from 0.8.10 to 0.8.11 in /docs ([#927](https://github.com/ts0yu/arbiter/pull/927))
+- *(deps)* bump anyhow from 1.0.80 to 1.0.81 ([#933](https://github.com/ts0yu/arbiter/pull/933))
+- *(deps)* bump proc-macro2 from 1.0.78 to 1.0.79 ([#934](https://github.com/ts0yu/arbiter/pull/934))
+- *(deps)* bump toml from 0.8.10 to 0.8.12 ([#935](https://github.com/ts0yu/arbiter/pull/935))
+- *(deps)* bump rayon from 1.8.1 to 1.10.0 ([#937](https://github.com/ts0yu/arbiter/pull/937))
+- update submodule ([#928](https://github.com/ts0yu/arbiter/pull/928))
+- Update README.md ([#936](https://github.com/ts0yu/arbiter/pull/936))
+- *(deps)* bump ethers from 2.0.13 to 2.0.14 ([#931](https://github.com/ts0yu/arbiter/pull/931))
+- *(deps)* bump clap from 4.5.1 to 4.5.2 ([#929](https://github.com/ts0yu/arbiter/pull/929))
+- *(deps)* bump chrono from 0.4.34 to 0.4.35 ([#930](https://github.com/ts0yu/arbiter/pull/930))
+- *(deps)* bump mio from 0.8.10 to 0.8.11 ([#926](https://github.com/ts0yu/arbiter/pull/926))
+- *(deps)* bump crossbeam-channel from 0.5.11 to 0.5.12 ([#919](https://github.com/ts0yu/arbiter/pull/919))
+- *(deps)* bump syn from 2.0.51 to 2.0.52 ([#920](https://github.com/ts0yu/arbiter/pull/920))
+- *(deps)* bump tempfile from 3.10.0 to 3.10.1 ([#917](https://github.com/ts0yu/arbiter/pull/917))
+- *(deps)* bump syn from 2.0.50 to 2.0.51 ([#915](https://github.com/ts0yu/arbiter/pull/915))
+- release ([#914](https://github.com/ts0yu/arbiter/pull/914))
+- release ([#905](https://github.com/ts0yu/arbiter/pull/905))
+- *(deps)* bump serde from 1.0.196 to 1.0.197 ([#910](https://github.com/ts0yu/arbiter/pull/910))
+- *(deps)* bump syn from 2.0.49 to 2.0.50 ([#908](https://github.com/ts0yu/arbiter/pull/908))
+- *(deps)* bump serde_json from 1.0.113 to 1.0.114 ([#909](https://github.com/ts0yu/arbiter/pull/909))
+- *(deps)* bump assert_cmd from 2.0.13 to 2.0.14 ([#907](https://github.com/ts0yu/arbiter/pull/907))
+- *(deps)* bump anyhow from 1.0.79 to 1.0.80 ([#906](https://github.com/ts0yu/arbiter/pull/906))
+- *(deps)* bump arbiter-engine from 0.2.0 to 0.3.0 ([#902](https://github.com/ts0yu/arbiter/pull/902))
+- *(deps)* bump clap from 4.5.0 to 4.5.1 ([#903](https://github.com/ts0yu/arbiter/pull/903))
+- *(deps)* bump syn from 2.0.48 to 2.0.49 ([#901](https://github.com/ts0yu/arbiter/pull/901))
+- incorrect method ([#904](https://github.com/ts0yu/arbiter/pull/904))
+- release ([#896](https://github.com/ts0yu/arbiter/pull/896))
+- refactor engine tests and examples ([#895](https://github.com/ts0yu/arbiter/pull/895))
+- *(arbiter)* release v0.4.16 ([#894](https://github.com/ts0yu/arbiter/pull/894))
+- release ([#890](https://github.com/ts0yu/arbiter/pull/890))
+- attempt to fix release-plz ([#893](https://github.com/ts0yu/arbiter/pull/893))
+- update docs ([#891](https://github.com/ts0yu/arbiter/pull/891))
+- rename directories ([#889](https://github.com/ts0yu/arbiter/pull/889))
+- Submodule workspace ([#888](https://github.com/ts0yu/arbiter/pull/888))
+- release ([#879](https://github.com/ts0yu/arbiter/pull/879))
+- Engine/world from config ([#882](https://github.com/ts0yu/arbiter/pull/882))
+- Docs/examples ([#881](https://github.com/ts0yu/arbiter/pull/881))
+- release ([#878](https://github.com/ts0yu/arbiter/pull/878))
+- bump arbiter-core
+- workflow ([#876](https://github.com/ts0yu/arbiter/pull/876))
+- bump to revm 5.0.0 ([#871](https://github.com/ts0yu/arbiter/pull/871))
+- *(deps)* bump chrono from 0.4.33 to 0.4.34 ([#874](https://github.com/ts0yu/arbiter/pull/874))
+- *(deps)* bump thiserror from 1.0.56 to 1.0.57 ([#873](https://github.com/ts0yu/arbiter/pull/873))
+- remove `PhantomData` ([#868](https://github.com/ts0yu/arbiter/pull/868))
+- Crates ([#867](https://github.com/ts0yu/arbiter/pull/867))
+- release ([#729](https://github.com/ts0yu/arbiter/pull/729))
+- simplify stream interface ([#866](https://github.com/ts0yu/arbiter/pull/866))
+- migrate to anyhow::Result ([#864](https://github.com/ts0yu/arbiter/pull/864))
+- make machine pub ([#862](https://github.com/ts0yu/arbiter/pull/862))
+- *(deps)* bump polars from 0.36.2 to 0.37.0 ([#818](https://github.com/ts0yu/arbiter/pull/818))
+- *(deps)* bump tempfile from 3.9.0 to 3.10.0 ([#844](https://github.com/ts0yu/arbiter/pull/844))
+- remove codecov ([#860](https://github.com/ts0yu/arbiter/pull/860))
+- *(deps)* bump thiserror from 1.0.55 to 1.0.56 ([#850](https://github.com/ts0yu/arbiter/pull/850))
+- *(deps)* bump async-trait from 0.1.76 to 0.1.77 ([#849](https://github.com/ts0yu/arbiter/pull/849))
+- refactor arbiter-core ([#858](https://github.com/ts0yu/arbiter/pull/858))
+- add `arbiter-engine` error handling ([#852](https://github.com/ts0yu/arbiter/pull/852))
+- documentation  refactor 🌱 ([#847](https://github.com/ts0yu/arbiter/pull/847))
+- engine::new() visibility  ([#854](https://github.com/ts0yu/arbiter/pull/854))
+- mdbook contributions for new crates ([#845](https://github.com/ts0yu/arbiter/pull/845))
+- Simulation Configs ([#843](https://github.com/ts0yu/arbiter/pull/843))
+- *(deps)* bump tokio from 1.35.1 to 1.36.0
+- Merge pull request [#837](https://github.com/ts0yu/arbiter/pull/837) from primitivefinance/dependabot/cargo/config-0.14.0
+- Merge branch 'main' into engine/batch-runner
+- fmt
+- improve agent docs, handle world.run() fallback behavior if no agents were added
+- finalize example tests, fix clippy errors/redundant imports
+- token_minter test cleanup
+- token_minter/requester test
+- niiiiice
+- making some progress
+- save state wip
+- state machines
+- machine + agent
+- wip
+- Merge branch 'main' into feat/agent-builder
+- updated builder api for environment
+- Merge pull request [#820](https://github.com/ts0yu/arbiter/pull/820) from primitivefinance/engine/refactor-behaviors
+- spellcheck
+- inspector for `Environment`
+- `can_log()`
+- refactor + cleanup
+- okay I tried some weird shit
+- deploying console
+- save
+- forge install: ds-test
+- save
+- Merge pull request [#816](https://github.com/ts0yu/arbiter/pull/816) from primitivefinance/dependabot/cargo/chrono-0.4.33
+- *(deps)* bump chrono from 0.4.32 to 0.4.33
+- simulation.md
+- linkcheck
+- vulnerability corpus
+- usage
+- getting started
+- contributing
+- documentation
+- Update README.md
+- Update mdbook.yml
+- Merge pull request [#813](https://github.com/ts0yu/arbiter/pull/813) from primitivefinance/documentation-additions
+- remove preprocessor
+- now all pass?
+- make sure this works properly
+- testing out
+- reworking
+- Update book.yaml
+- i hate workflows
+- linkcheck, should fail on book build
+- Update book.yaml
+- rework workflow
+- improvement
+- Merge branch 'main' into documentation-additions
+- save
+- improving mdbook testing
+- Update arbiter_core.md
+- `Environment` docs
+- restructure
+- save
+- Merge pull request [#807](https://github.com/ts0yu/arbiter/pull/807) from primitivefinance/dependabot/cargo/clap-4.4.18
+- Merge pull request [#806](https://github.com/ts0yu/arbiter/pull/806) from primitivefinance/dependabot/cargo/proc-macro2-1.0.78
+- *(deps)* bump proc-macro2 from 1.0.76 to 1.0.78
+- Merge branch 'main' into arbiter-engine/world-agent-behaviors
+- pin revm versions
+- calling it here
+- push up: test adjustment
+- make clippy happy
+- last push
+- push up
+- save
+- helper functions for `StateMachine`s
+- `StateMachine` trait
+- agent::streaming() passes
+- removing eth event leads to different behavior
+- test gets stuck
+- example ping pong
+- timed message
+- version finagle
+- chore spelling
+- chore version specification
+- Update Cargo.lock
+- clean up
+- mvp combo stream
+- compile errors gone
+- I am gutting things
+- lock the versions wtf
+- Update token_minter.rs
+- channel sometimes closes too soon
+- messager + transactor
+- leaving off here,
+- some ideas laid out
+- attempting messager refactor
+- Merge pull request [#782](https://github.com/ts0yu/arbiter/pull/782) from primitivefinance/dependabot/cargo/clap-4.4.14
+- Merge pull request [#781](https://github.com/ts0yu/arbiter/pull/781) from primitivefinance/dependabot/cargo/revm-30bbcdf
+- Merge pull request [#780](https://github.com/ts0yu/arbiter/pull/780) from primitivefinance/dependabot/cargo/proc-macro2-1.0.76
+- *(deps)* bump proc-macro2 from 1.0.75 to 1.0.76
+- *(deps)* bump revm from `67331de` to `aff028e`
+- *(deps)* bump thiserror from 1.0.51 to 1.0.55
+- Merge pull request [#775](https://github.com/ts0yu/arbiter/pull/775) from primitivefinance/dependabot/cargo/proc-macro2-1.0.75
+- Merge pull request [#774](https://github.com/ts0yu/arbiter/pull/774) from primitivefinance/dependabot/cargo/clap-4.4.13
+- Merge pull request [#773](https://github.com/ts0yu/arbiter/pull/773) from primitivefinance/dependabot/cargo/syn-2.0.43
+- *(deps)* bump syn from 2.0.42 to 2.0.43
+- Merge pull request [#770](https://github.com/ts0yu/arbiter/pull/770) from primitivefinance/dependabot/cargo/tokio-1.35.1
+- Merge pull request [#771](https://github.com/ts0yu/arbiter/pull/771) from primitivefinance/dependabot/cargo/futures-0.3.30
+- *(deps)* bump crossbeam-channel from 0.5.9 to 0.5.10
+- Merge branch 'main' into arbiter-core/db-backend
+- mod database and `coprocessor`
+- `arbiter-core` compiling
+- Merge branch 'main' into arbiter-core/db-backend
+- #[ignore] `test_agent()`
+- #[ignore] on `base_simulation()`
+- cleanup
+- replace `artemis-core`
+- cleanup
+- messager echo
+- *(deps)* bump tokio from 1.34.0 to 1.35.0
+- docs + cleanup
+- *(deps)* bump test-log from 0.2.13 to 0.2.14
+- fmt
+- Delete world.rs
+- Update Cargo.lock
+- Merge branch 'main' into arbiter-engine/init
+- dependencies
+- Update tests.rs
+- Update lint.yaml
+- Revert "Merge pull request [#725](https://github.com/ts0yu/arbiter/pull/725) from quidproquoo/migrate-alloy"
+- *(deps)* bump clap from 4.4.10 to 4.4.11
+- minor
+- Merge branch 'main' into release-plz-2023-11-21T13-00-44Z
+- dependancies
+- Merge branch 'migrate-alloy' of https://github.com/quidproquoo/arbiter into migrate-alloy
+- update
+- fmt
+- Changed ethers types to alloy types in cheatcodes
+- *(deps)* bump config from 0.13.3 to 0.13.4
+- Merge branch 'main' of github.com:/primitivefinance/arbiter
+- Merge pull request [#719](https://github.com/ts0yu/arbiter/pull/719) from primitivefinance/remove_wad
+- *(deps)* bump polars from 0.35.2 to 0.35.4
+- release
+- *(deps)* bump polars from 0.34.2 to 0.35.2
+- codecov.yaml -> codecov.yml
+- arbiter bind doesn't output nested bindings now
+- Merge branch 'main' into arbiter_bindings
+- solstat compiles
+- forge install: solstat
+- forge install: solmate
+- contracts
+- forge install: forge-std
+- forge init
+- arbiter-bindings
+- release
+- improve error handling
+- working as intended
+- added a passing itterator test
+- added a passing itterator test
+- abstracted broken code into for_each_submodile() function
+- release
+- Merge branch 'main' into dependabot/cargo/clap-4.4.8
+- abiter -> arbiter
+- add missing shutdown signal for json filetype
+- rm sleep in data capture test
+- clippy + fmt
+- revert back to old json style
+- add shutdown sender and receiver oneshot for data collection/environment interaction
+- log when file is done being written
+- use polars JsonWriter
+- rm useless warns
+- try w warn and moving to singleton break
+- break event collector loop
+- release
+- Merge pull request [#700](https://github.com/ts0yu/arbiter/pull/700) from primitivefinance/feat/client-label
+- ignore changelog
+- cargo lock
+- release
+- tag allow unused on label
+- Merge branch 'main' into feat/client-label
+- wont fail tests in CI
+- code spell
+- check-lockfile
+- Update Cargo.lock
+- organize tests to colins suggestion
+- Update release-plz.yml
+- release
+- release-plz
+- Update README.md
+- Merge pull request [#693](https://github.com/ts0yu/arbiter/pull/693) from primitivefinance/enhance/logging
+- clippy
+- Merge branch 'main' into enhance/logging
+- Merge pull request [#691](https://github.com/ts0yu/arbiter/pull/691) from primitivefinance/dependabot/cargo/toml-0.8.8
+- Merge pull request [#672](https://github.com/ts0yu/arbiter/pull/672) from primitivefinance/outputfile_optionality
+- Merge branch 'main' into cargo_lock
+- move to release-plz pr commits
+- commit to head_ref
+- auto commit lock file
+- Fix broken link in README.md
+- *(deps)* bump serde from 1.0.191 to 1.0.192
+- Merge pull request [#665](https://github.com/ts0yu/arbiter/pull/665) from primitivefinance/arbiter_config
+- Merge pull request [#679](https://github.com/ts0yu/arbiter/pull/679) from primitivefinance/dependabot/cargo/syn-2.0.39
+- *(deps)* bump syn from 2.0.38 to 2.0.39
+- *(deps)* bump serde from 1.0.190 to 1.0.191
+- version
+- release
+- remove generic
+- Merge branch 'main' into feat/pubsubclient
+- cleanup
+- yo it work
+- pubsub implemented
+- *(deps)* bump serde_json from 1.0.107 to 1.0.108
+- Merge pull request [#658](https://github.com/ts0yu/arbiter/pull/658) from primitivefinance/dependabot/cargo/tempfile-3.8.1
+- Merge branch 'main' into dependabot/cargo/tempfile-3.8.1
+- other test was broken too
+- remove book deploy
+- don't use macos in CI
+- fmt
+- remove other redundant file
+- remove test
+- fmt
+- release
+- Merge pull request [#656](https://github.com/ts0yu/arbiter/pull/656) from primitivefinance/colin/fix-event-logger
+- rm printlns
+- fmt
+- create valid json
+- Update data_collection.rs
+- wip
+- push json logs to vec
+- it works!!!!!!!!!!!!
+- wip
+- unsafe transmute
+- Update data_collection.rs
+- broadcast enum
+- create a channel for direct reads
+- Merge pull request [#642](https://github.com/ts0yu/arbiter/pull/642) from primitivefinance/dependabot/cargo/clap-4.4.7
+- *(deps)* bump tracing from 0.1.39 to 0.1.40
+- release
+- cargo lock
+- *(deps)* update toml requirement from =0.8.2 to =0.8.4
+- release
+- Merge pull request [#633](https://github.com/ts0yu/arbiter/pull/633) from primitivefinance/md_book
+- Merge pull request [#634](https://github.com/ts0yu/arbiter/pull/634) from primitivefinance/fix/arbiter-bind-output
+- release
+- code spell
+- clippy
+- tests pass
+- 🧪
+- Merge pull request [#618](https://github.com/ts0yu/arbiter/pull/618) from primitivefinance/feat/release_pls
+- bump version
+- forking EOA
+- *(deps)* update thiserror requirement from =1.0.49 to =1.0.50
+- fmt
+- Merge branch 'main' into feature/forking_eoa
+- eoa fork
+- Update tests.rs
+- eoa forking
+- updated dependancy version
+- core-version
+- bind tests don't care about order
+- Merge branch 'arbiter_bind' of github.com:/primitivefinance/arbiter into arbiter_bind
+- new rust version for foundry
+- use configs
+- start
+- use ethers-contract abigen heuristics for filenames
+- test 3 cpu macos test env
+- increment version
+- Merge branch 'feat/alt-event-capture' of github.com:primitivefinance/arbiter into feat/alt-event-capture
+- fmt and add missing newline to initial column writing step
+- version bump
+- reduce itterations to reduce load on CI
+- move fork_into_arbiter to lib tests
+- Merge branch 'arbiter/version' into testing
+- spelling
+- should reduce error occurance
+- testing
+- Merge branch 'arbiter/version' into bump-revm
+- Merge branch 'main' into arbiter/version
+- Merge pull request [#578](https://github.com/ts0yu/arbiter/pull/578) from primitivefinance/dependabot/cargo/clap-eq-4.4.6
+- *(deps)* update syn requirement from =2.0.37 to =2.0.38
+- Merge branch 'main' into setup-cli-docs
+- *(deps)* update RustQuant requirement from =0.0.32 to =0.0.33
+- *(deps)* update toml requirement from =0.8.1 to =0.8.2
+- Merge pull request [#582](https://github.com/ts0yu/arbiter/pull/582) from primitivefinance/dependabot/cargo/thiserror-eq-1.0.49
+- *(deps)* update thiserror requirement from =1.0.47 to =1.0.49
+- *(deps)* update RustQuant requirement in /arbiter-core
+- Merge pull request [#567](https://github.com/ts0yu/arbiter/pull/567) from primitivefinance/dependabot/cargo/assert_cmd-eq-2.0.12
+- Merge pull request [#566](https://github.com/ts0yu/arbiter/pull/566) from primitivefinance/dependabot/cargo/syn-eq-2.0.37
+- Merge pull request [#565](https://github.com/ts0yu/arbiter/pull/565) from primitivefinance/dependabot/cargo/toml-eq-0.8.1
+- Merge pull request [#569](https://github.com/ts0yu/arbiter/pull/569) from primitivefinance/dependabot/cargo/arbiter-core/anyhow-eq-1.0.75
+- Merge branch 'main' into dependabot/cargo/arbiter-core/anyhow-eq-1.0.75
+- Merge branch 'main' into sabnock/mdbook-skeleton
+- :memo: docs: mdbook skeleton
+- spelling
+- Instructions to reproduce
+- vuln corpus
+- bump patch
+- Merge branch 'main' into CI_CD_debug
+- Update README.md
+- Merge pull request [#510](https://github.com/ts0yu/arbiter/pull/510) from primitivefinance/dependabot/cargo/RustQuant-0.0.31
+- patch version
+- *(deps)* update RustQuant requirement from 0.0.26 to 0.0.31
+- Merge branch 'main' into feat(arbiter-derive)-create-deploy-derive
+- Merge branch 'main' into cratesio
+- patch version v0.5.1
+- re-bind contracts with forge `add_derives`
+- patch version
+- arbiter bind bug is fixed 🐛
+- Merge branch 'bug_init' into arbiter_bind
+- Update bind.rs
+- manifest author emails
+- manifest remove keywords
+- manifest
+- remove crate specific readme
+- manifest changes for crates.io
+- skip .git files
+- codespell
+- Merge branch 'version-update/cleanup' into version-update/cleanup
+- Fix typos
+- cargo versions
+- docs/renames/lint
+- Merge branch 'feat(arbiter-core)/v0.5.0' into version-update/cleanup
+- all pass!
+- `constant_gas_price()`
+- balances
+- return gas error to middleware
+- tests layout
+- `Instruction::Query`
+- test for blockupdate reciept data
+- reset index and gas on manual BlockUpdate instructions
+- un-used dependancies
+- tests
+- fmt + clippy
+- tx fields
+- gas used
+- clippy + fmt
+- Merge remote-tracking branch 'origin/feat(arbiter-core)/v0.5.0' into feat/will-hacky
+- nits on enums
+- fixed and implemented `update_block()`
+- environment/middleware comms
+- add initial `BlockType` enum to `environment.rs`
+- remove lint
+- refactored `middleware.rs`
+- refactor `environment.rs`
+- version change for `RustQuant`
+- fmt
+- Merge branch 'main' into feat-derives-for-environmentparams
+- Merge branch 'main' into chore-pull-request-template
+- Update pull_request_template.md
+- added one last bench
+- refactor and fix a few errors
+- finalize benchmarks and report
+- added bench cfg
+- working benches
+- Merge branch 'main' into benchmarks
+- setup benches binary
+- Bump patch version
+- Update lib.rs
+- bump minor version
+- Merge branch 'main' into main
+- Merge branch 'main' into main
+- fmt
+- Add a signer collision test case
+- Merge pull request [#448](https://github.com/ts0yu/arbiter/pull/448) from primitivefinance/fix-pull-request-template
+- Merge branch 'main' into ci/cd/codecov_patch_repo
+- move out of directory
+- Merge branch 'main' into repo-pull-request-template
+- Merge branch 'main' into repo-issue-templates
+- Merge branch 'main' into repo-issue-templates
+- replace `feature_request`
+- Update bug_report.md
+- add issue templates 🗒️
+- Update test.yaml
+- Update README.md
+- final format
+- Merge branch 'main' into feat/middleware
+- Merge branch 'feat/middleware' into enhancement-readme
+- Merge branch 'feat/middleware' into waylon/tests
+- comment out hanging tests
+- requested nits
+- Merge branch 'waylon/tests' into waylon/loop_termination_warning
+- Clippy and fmt
+- hotfix match in `send_transaction()`
+- Merge pull request [#422](https://github.com/ts0yu/arbiter/pull/422) from primitivefinance/test-cleanup
+- exchange tests passing ✅
+- stuck on another stack overflow
+- `token_mint_and_balance` test passes ✅
+- `arbiter_math` test passes ✅
+- addressed feedback
+- make `revm_logs_to_ethers_logs` private
+- tidying up 🗂️
+- remove notion of Agent
+- Merge branch 'feat/middleware' into chore-cargo-docs
+- rename `EnvironmentError` variants
+- `middleware` documentation 📝
+- `math.rs` documentation 📝
+- Merge branch 'feat/middleware' into chore-cargo-docs
+- `middleware.rs` errors and clean
+- `EnvironmentError`s used ✅
+- nightly fmt
+- placed handle in `Environment`
+- `ManagerError` and manager logging ✅
+- more cleaning and TODOs
+- formatting 🗃️
+- math cleanup 🧮
+- cleaned up cargo 📦
+- remove book 📖❌
+- small cleanup to `bin`
+- remove old docs and reorganize modules
+- remove output folder (`output/.empty`)
+- tidying up 🧼
+- `#[inline]` on utility functions
+- refactor tests
+- `Environment` state control
+- `FilterWatcher` tests 🫡
+- `FilterWatcher` online -- still needs to filter
+- refactor to add `FilterReceiver`s to `Middleware`
+- Merge branch 'feat/middleware' into waylon/time_oracle
+- get the `eth_NewFilter` request compiling
+- rebuilding agents and filter request
+- started on `FilterWatcher`
+- adjust agent deployment and organize 📂
+- more restructure and clean up 🧽
+- remove `init::main` test
+- transact test finished :smiley:
+- filesystem overhaul
+- remove `writer` bindings ❌
+- call works 👍
+- deploy is working 🎊
+- middleware progress and tests :pencil:
+- broken still!
+- more tests scaffolded out
+- middleware for environment
+- taking some notes :notebook:
+- deeper into the rabbit hole
+- more scaffolding :construction:
+- agent test :pencil:
+- environment<>provider :construction_worker:
+- Minimize middleware :wastebasket:
+- cleaned up math
+- restructure
+- saving along the way
+- ✨
+- change agent, fix signer
+- 🦀
+- some crate
+- 🧹
+- more cleaning
+- remove bind script
+- fmt
+- crates -> lib
+- bindings -> lib
+- chain -> bin
+- missing deps
+- Merge branch 'main' into feat/middleware
+- get rid of ```to_string()```
+- cargo format
+- adjust formatting
+- refactor
+- add .toString
+- apply quote crate
+- refactor raw strings on `create_simulation`
+- adjust `mod_rs` part of your function using quote!
+- add quote crate
+- update chapter 3
+- update chapter 1
+- reformat the chapters
+- progress on chapter 2 docs
+- update chapter_2.md
+- Outline a few core chapters
+- develop docs
+- Begin mdBook
+- :sparkles:
+- arbiter bind
+- uniswap bug
+- move arbiter into gitignore
+- Cooking
+- fmt
+- cooking
+- init
+- init
+- Merge branch 'main' into waylon/toml_structure
+- main
+- Merge branch 'main' into waylon/toml_structure
+- Clippy
+- binding metadata
+- fmt
+- compute new codehash
+- new bindings
+- wip
+- reintroduce bindings
+- rm bindings folder
+- rm bindings
+- fmt
+- ignore bindings
+- bump bindings version
+- settle changes
+- wip
+- update portfolio version
+- update submodules
+- update submodules
+- revert arbmod remapping
+- i trolled, reverting to last commit
+- move sed to after contracts are initialized
+- forge install: arbmod
+- just do one forge install since git submodules are there
+- final touches
+- improved `detect_price_change`
+- implemented no-arb bounds
+- Squashing :bug:
+- Bug fix process
+- debugging
+- Merge branch 'main' into colin/evm-tx-receiver
+- compile errors
+- Update main.rs
+- change `EventBroadcaster` to tuple
+- watch type aliases
+- channel type aliases
+- async mutex
+- compiler errors + clippy
+- Merge branch 'waylon/apply_new_api_to_sim' into colin/evm-tx-receiver
+- clean up
+- rename `detect_arbitrage` to `detect_price_change`
+- arbitrage detection test pass
+- Fixed event indexing in filter
+- Use all filters in stream
+- broadcasting and stream watching
+- working towards StreamExt
+- watcher test
+- from here the detect_arbitrage function needs rebuilt
+- tests in agent module pass
+- broadcast events, call_contract -> call
+- refactoring environment
+- version
+- Merge branch 'main' into waylon/update_deps
+- update all cargo :package:
+- Merge branch 'main' into waylon/release_profile
+- Create test.yaml
+- Create lint.yaml
+- Merge branch 'estelle/record' of https://github.com/primitivefinance/arbiter into estelle/record
+- working
+- bug ugh
+- fmt
+- liquid swap integration
+- clean
+- Uniswap GBM output
+- Update `visualize` and loop over runs for a graphic
+- sed commit hash and clean up
+- binary crate and workspace refactor
+- update submodules and bindings
+- clean up
+- new commands for visualize
+- clean up
+- parallel over volatility with max worker count
+- sim is parallelized with seeds
+- processing input for sweep
+- added parameters to the output csv
+- merge commit :sparkles:
+- Merge branch 'main' into waylon/lp_fee_growth
+- Merge branch 'main' into waylon/add_arb_profit
+- fmt
+- clean up
+- reworked simulate commands using serde
+- cli crate revision
+- added the arbitrage math to uniswap sim :sparkles:
+- Merge branch 'main' into waylon/uniswap_journaler
+- clean up
+- added csv writing
+- pushen :sparkles:
+- :coffin: to the journaler
+- clean up unused things
+- revert
+- Reverted to commit OLDER_COMMIT_HASH
+- Update mod.rs
+- slight improvement on error handling :goal_net:
+- Merge branch 'main' into waylon/uniswap_journaler
+- Journaler
+- fmt
+- Fix tests
+- Merge branch 'main' into colin/uniswap-v2-sim
+- clean up
+- LOOKIN GOOD
+- moving towards swap loop
+- uniswap swap is working
+- swap working?
+- initial prices done
+- Update v2-periphery
+- fmt and rebind
+- rebind and fix liquidity!
+- Reverted to commit OLDER_COMMIT_HASH
+- byte code injections
+- bytecode injections
+- Cleaned up some stuff
+- unused contracts
+- asdfa
+- all working
+- sol lib
+- things
+- periphery
+- forge install: v3-periphery
+- sub mod hell
+- progress, but still need to get init_code_hash
+- one more small change for ux
+- ><UNIV2 BINDINGS MODIFIED><
+- bind working again
+- got v3-periphery up
+- adjusted submodules
+- UniV2 factory deployed
+- Merge branch 'main' into waylon/sim_config
+- config addition
+- fmt
+- Update mod.rs
+- working arbitrage and price loop
+- inch by inch
+- inching closer
+- getting there
+- touch up
+- pretty
+- arbitrageur is detecting
+- more structure
+- getting there!
+- bit more cleaning
+- cleaning up
+- Merge branch 'main' into colin/portfolio-arbitrageur
+- cooked the cook
+- Merge branch 'main' into waylon/events
+- Bump patch version
+- testing CI/CD
+- git
+- test
+- github token
+- things
+- Merge branch 'main' into colin/portfolio_swap
+- Update rust.yaml
+- Merge branch 'main' into estelle/uniswapv2
+- Update rust.yaml
+- Update rust.yaml
+- cargo fmt
+- done!
+- bindings
+- add submodule
+- remove tests
+- tests
+- tests for coverage
+- Merge branch 'main' into waylon/subcommands
+- Merge branch 'main' into waylon/subcommands
+- code coverage token
+- fmt
+- uniswap
+- clippy
+- subcommands
+- Merge branch 'main' into colin/journaler
+- rearranging the badge order
+- Merge branch 'main' into main
+- Merge branch 'main' of github.com:funkycadet/arbiter into main
+- add coverage badge to README
+- fmt
+- uniswap skeleton
+- uniswap skeleton
+- sim mod
+- sim mod
+- Fixes issue [#234](https://github.com/ts0yu/arbiter/pull/234)
+- Update backtest_data.rs
+- cargo fmt
+- simulate crate cargo docs
+- cli crate dargo docs
+- on-chain cargo docs
+- clean up
+- Merge branch 'main' into colin/simple-arb-detection
+- remove comment
+- remove ethers-core
+- Merge branch 'dependabot/cargo/primitive-types-0.12.1' into dependabot/cargo/ethers-core-2.0.3
+- fmt
+- clippy
+- fmt and remove unnecessary dep
+- Update primitive-types requirement from 0.9.1 to 0.12.1
+- Merge pull request [#224](https://github.com/ts0yu/arbiter/pull/224) from primitivefinance/waylon/versioning
+- name change
+- every patch not every 5 minor
+- All subcrates will be included
+- ID
+- aut versioning bump
+- fmt
+- bit of doc clean up
+- rename `Price` to `PriceProcess`
+- remove two more files
+- refactor
+- abstracting more out of main
+- Merge branch 'main' into colin/abstract-main
+- cargo fmt
+- Further abstracting main
+- review edits
+- Merge branch 'main' into estelle/stochastic
+- Merge branch 'main' into colin/simple-arbitrageur
+- remove comment
+- fmt
+- clippy
+- event filtering in place
+- event filter is online
+- the borrow checker is appeased for now
+- saving progress
+- setting up a filter
+- all is well
+- made some fixes
+- saving
+- the oven is preheated
+- a bit more progress
+- i found some onions in the pantry
+- stopping
+- dishes
+- desert
+- dinner is served
+- get the goods
+- Merge branch 'main' into waylon/create_pool
+- clippy fmt
+- tests pass.
+- contract errors handled
+- remove deps
+- fmt
+- clippy
+- clean up good ya ya
+- colin forgot to do the dishes
+- clippy yum yum
+- add modules
+- pre clippy snack
+- modules are in the oven
+- test works, time to fry this bacon
+- basic middleware implemented
+- formating some bugs
+- cooking some bugs
+- error debugging
+- Merge branch 'estelle/OU' of https://github.com/primitivefinance/arbiter into estelle/OU
+- Merge branch 'main' into estelle/OU
+- Properly configure OU
+- no more errors
+- Restructure price_simulation.rs
+- added struct for OU plotting
+- Merge branch 'main' into estelle/OU
+- Update CONTRIBUTING.md
+- All modules require docs
+- Fixed GBM in price_simulation
+- All CI pass locally
+- foundry version
+- Bindings fix
+- Might fix
+- ./bind.sh
+- Adding on chain lib to deprecated
+- tagging all as deprecated
+- incorrectly named package
+- fmt
+- arbmod
+- Spelling
+- Liscense's
+- Liscense's
+- Merge branch 'main' into waylon/on-chain
+- Liscense
+- Liscense
+- Clippy
+- pure event monitor
+- on-chain crate
+- big refactor
+- utils module
+- on - chain
+- switch to single file crate
+- Delete shell script
+- Fixed license
+- Update arbmod
+- regenerated bindings, small edits to readme and main
+- Working on Foundry and bindings
+- edited README a bit more
+- edited README
+- added documentation for environment
+- clippy and fmt
+- changes to buffer - only store head
+- Implemented an event buffer
+- Update arbmod
+- Basic execution handler done
+- clippy
+- fmt
+- logs work
+- Close to done. Working on parsing log output.
+- fmt
+- Merge branch 'main' into colin/agent-module
+- edits that made environment struct more private
+- clippy, dependencies, fmt
+- tests pass now
+- environment and agents reworked
+- saving progress
+- began agent abstraction, cleaned main
+- clippy broke fmt
+- Clippy
+- fmt
+- Portfolio is deployed
+- recast
+- fmt
+- invalid data
+- deployed simple register
+- remove contracts
+- forge install: arbmod
+- Fmt
+- submodules
+- Revert local contracts
+- forge install: portfolio
+- Liscense for deny
+- Typo
+- fmt
+- bindings
+- bindings all updated
+- Build + bind works
+- portfolio contracts
+- portfolio contracts
+- forge install: solstat
+- forge install: solmate
+- contracts
+- contracts -> src
+- need src/
+- need lib/
+- foundry config
+- clean up
+- test + clippy
+- depricate old code
+- simplified the deploy function
+- added a few comments, ran clippy and fmt
+- new contract deployed; also fixed the way we generate a contract address
+- fmt
+- clippy
+- nit picks
+- done for now
+- runs now
+- cleaning up and committing along the way
+- execution.rs SimulationContract implemented
+- Merge pull request [#122](https://github.com/ts0yu/arbiter/pull/122) from primitivefinance/0xJepsen-patch-1
+- Update lib.rs
+- working example erc20 contract
+- increaseAllowance and balanceOf are called, outputs not correct yet.
+- test written, working on the fix
+- add folder to gitignore
+- saving state again
+- saving state
+- clippy and fmt
+- adding erc20.sol
+- working deploy of erc20
+- Print help if no command supplied
+- Update README.md
+- Update README.md
+- Update main.rs
+- hopefully fixed ethers problems
+- Fixes tests
+- Update rust.yaml
+- Merge branch 'main' into colin/clairvoyance-lib
+- moved print into see()
+- fmt and clippy
+- moved some functionality into the Clairvoyance lib
+- Merge pull request [#108](https://github.com/ts0yu/arbiter/pull/108) from primitivefinance/virtual-revm
+- Update simulate Cargo.toml
+- get String response, remove a comment.
+- fmt
+- latest
+- .
+- fmt
+- rm
+- clippy stuff
+- latest
+- latest
+- changes
+- change paths
+- Updates to toml files
+- Merge branch 'main' into refactor-structure
+- fmt
+- slight reorganization
+- Update main.rs
+- Update main.rs
+- final
+- Clippy + fmt
+- MVP read working
+- implemented revm 3 and cutdown on bloat
+- Merge branch 'main' into improvement/update-revm
+- revm 3 implemented
+- fmt
+- Merge branch 'error' of https://github.com/primitivefinance/arbiter into error
+- formatting
+- ahhh
+- add deps
+- Merge branch 'primitivefinance:main' into main
+- error handling for command line inputs on clairvoyance
+- Fixing lint issue from cargo clippy, adding command_path to print statement
+- Fixing lint issue from cargo clippy, &String to &str
+- Synced with main to try to fix lint issue
+- Merge branch 'primitivefinance:main' into main
+- made virtuals changes, and cleaned up Config's new method
+- adding custom path for command line pool configs, improved command line UX
+- Merge pull request [#67](https://github.com/ts0yu/arbiter/pull/67) from primitivefinance/number-calc
+- typos
+- Colins feedback
+- remove comments in place of a fn
+- fmt + Constant
+- Price field
+- Clean Code!
+- Pools update
+- getters and setters for pool
+- Skeleton
+- fmt
+- clippy fixed
+- Merged main
+- Merge branch 'main' into GBM-pricing
+- fmt and clean up
+- basic plotting done
+- Remove "time_series_generator" crate
+- refactored into mod simulation
+- stuck on plots
+- Update README.md
+- merge conflicts resolution
+- **final naming changes**
+- s_eth2 -> seth2
+- token naming convention fix
+- final touches
+- remove provider flag
+- added `Pool` struct
+- comments
+- arbiter compile caught reth copy and paste nonfix, so fixed it
+- spacing fix
+- adding rocket pool ethereum reth
+- created steth entry and added to hashmap
+- making comments consistent
+- Rename CONTRIBUTING.md to .github/CONTRIBUTING.md
+- Update README.md
+- Create CONTRIBUTING.md
+- Update README.md
+- Update README.md
+- Update README.md
+- Merge branch 'main' of github.com:/primitivefinance/arbitrage-module
+- Update cli.yml
+- Update uniswap/compute_price
+- Update README.md
+- Create LICENSE
+- Update README.md
+- Update README.md
+- Update README.md
+- Update README.md
+- Update Cargo.toml
+- Merge branch 'main' of github.com:/primitivefinance/arbitrage-module
+- Comments
+- Update README.md
+- Merge pull request [#14](https://github.com/ts0yu/arbiter/pull/14) from primitivefinance/refactor-after-user-input-parsing
+- Rust CLI
+- Tests
+- Basis points added as a CLI argument
+- more tokens
+- added more tokesn
+- push for now, error in pricing
+- Refactored utils, fixed mismatch in pool bps
+- New compute_price function
+- Fixed capitals, options on api_key
+- Merge branch 'main' into user-input-parsing
+- threading attempt
+- Abstracted all functionality out of main
+- Pool search
+- Provider + factory
+- Merge pull request [#8](https://github.com/ts0yu/arbiter/pull/8) from primitivefinance/price-math
+- Displaying human readable prices
+- Update main.rs
+- Merge branch 'main' into getPoolIds
+- monitor swap events
+- Tokens
+- Merge branch 'main' of github.com:/primitivefinance/arbitrage-module
+- Contract interfaces
+- init
+- forge install: ds-test
+- Initial commit
+
+### Removed
+- removed `utils.rs` ❌
+- removed more junk 🗑️
+- removed `tokio::broadcast`
+- removed the price path plotting module
+- removed Journaler :sparkles:
+- removed  from
+- removed unused bindings
+- removed unnecessary function
+
 ## [0.4.20](https://github.com/primitivefinance/arbiter/compare/arbiter-v0.4.19...arbiter-v0.4.20) - 2024-04-26
 
 ### Added

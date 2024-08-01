@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.8](https://github.com/ts0yu/arbiter/compare/arbiter-bindings-v0.1.7...arbiter-bindings-v0.1.8) - 2024-08-01
+
+### Other
+- release
+- release ([#916](https://github.com/ts0yu/arbiter/pull/916))
+- Some repository Tender Loving Care. Should fix release please once merged.  ([#959](https://github.com/ts0yu/arbiter/pull/959))
+- update submodule ([#928](https://github.com/ts0yu/arbiter/pull/928))
+- release ([#905](https://github.com/ts0yu/arbiter/pull/905))
+- release ([#890](https://github.com/ts0yu/arbiter/pull/890))
+- rename directories ([#889](https://github.com/ts0yu/arbiter/pull/889))
+- change project structure
+- Contract interfaces
+- init
+
 ## [0.1.7](https://github.com/primitivefinance/arbiter/compare/arbiter-bindings-v0.1.6...arbiter-bindings-v0.1.7) - 2024-04-26
 
 ### Other
